@@ -17,9 +17,22 @@ return [
     /*
      * Filter out body fields which will never be logged.
      */
-    'except' => [
-        'password',
-        'password_confirmation',
+    'except_request' => [
+        //'password',
+        //'password_confirmation',
+    ],
+    'except_header' => [
+        'postman-token',
+        'accept',
+        'accept-language',
+        'accept-encoding',
+        'cache-control',
+        'content-type',
+        'content-length',
+        'connection',
+        'host',
+        'user-agent',
+        'origin'
     ],
     
 ];
