@@ -15,7 +15,7 @@ This log acts as an extra safety net for critical user submissions, such as form
 You can install the package via composer:
 
 ```bash
-composer require spatie/laravel-http-logger
+composer require daisanmu/laravel-http-logger
 ```
 
 Optionally you can publish the configfile with:
@@ -48,6 +48,34 @@ return [
         'password',
         'password_confirmation',
     ],
+    /*
+     * Filter out header fields which will never be logged.
+     */
+    'except_header' => [
+        'postman-token',
+        'accept',
+        'accept-language',
+        'accept-encoding',
+        'cache-control',
+        'content-type',
+        'content-length',
+        'connection',
+        'host',
+        'user-agent',
+        'origin'
+    ],
+    /**
+     *指定错误发送邮件
+    */
+    'send_mail_status' => [
+        '500'
+    ],
+    /**
+     *指定到指定邮箱，需要配置laravel的Mail
+    */
+    'send_to' => [
+        '10503331@qq.com'
+    ]
 ];
 ```
 
@@ -72,89 +100,10 @@ Route::post('/submit-form', function () {
     //
 })->middleware(\Spatie\HttpLogger\Middlewares\HttpLogger::class);
 ```
-
-### Logging
-
-Two classes are used to handle the logging of incoming requests: 
-a `LogProfile` class will determine whether the request should be logged,
-and `LogWriter` class will write the request to a log. 
-
-A default log implementation is added within this package. 
-It will only log `POST`, `PUT`, `PATCH`, and `DELETE` requests 
-and it will write to the default Laravel logger.
-
-You're free to implement your own log profile and/or log writer classes, 
-and configure it in `config/http-logger.php`.
-
-A custom log profile must implement `\Spatie\HttpLogger\LogProfile`. 
-This interface requires you to implement `shouldLogRequest`.
-
-```php
-// Example implementation from `\Spatie\HttpLogger\LogNonGetRequests`
-
-public function shouldLogRequest(Request $request): bool
-{
-   return in_array(strtolower($request->method()), ['post', 'put', 'patch', 'delete']);
-}
+在spatie/laravel-http-logger 基础上增加记录header IP 和response信息，当response为指定错误码时可发送邮件
 ```
 
-A custom log writer must implement `\Spatie\HttpLogger\LogWriter`. 
-This interface requires you to implement `logRequest`.
-
-```php
-// Example implementation from `\Spatie\HttpLogger\DefaultLogWriter`
-
-public function logRequest(Request $request): void
-{
-    $method = strtoupper($request->getMethod());
-    
-    $uri = $request->getPathInfo();
-    
-    $bodyAsJson = json_encode($request->except(config('http-logger.except')));
-
-    $message = "{$method} {$uri} - {$bodyAsJson}";
-
-    Log::info($message);
-}
-```
-
-### Testing
-
-``` bash
-composer test
-```
-
-### Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-### Security
-
-If you discover any security related issues, please email freek@spatie.be instead of using the issue tracker.
-
-## Postcardware
-
-You're free to use this package, but if it makes it to your production environment we highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using.
-
-Our address is: Spatie, Samberstraat 69D, 2060 Antwerp, Belgium.
-
-We publish all received postcards [on our company website](https://spatie.be/en/opensource/postcards).
-
-## Credits
-
-- [Brent Roose](https://github.com/brendt)
-- [All Contributors](../../contributors)
-
-## Support us
-
-Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
-
-Does your business depend on our contributions? Reach out and support us on [Patreon](https://www.patreon.com/spatie). 
-All pledges will be dedicated to allocating workforce on maintenance and new awesome stuff.
+fork 自 https://github.com/spatie/laravel-http-logger
 
 ## License
 
