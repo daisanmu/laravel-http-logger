@@ -9,6 +9,8 @@
   日志中间件，可通过route指定中间件来记录http请求的 header ,body,ip,response信息。并且当response错误时可发生邮件到指定邮箱（这需要配置好laravel自带的Mail）。
   这些参数都是可配置的。配置文件如下。
 
+  记录的log是在storage/log下，命名规则是每天一个request.log文件。
+
 
 ## Installation
 
