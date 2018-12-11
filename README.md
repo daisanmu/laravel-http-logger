@@ -23,7 +23,7 @@ composer require daisanmu/laravel-http-logger
 Optionally you can publish the configfile with:
 
 ```bash
-php artisan vendor:publish --provider="Spatie\HttpLogger\HttpLoggerServiceProvider" --tag="config" 
+php artisan vendor:publish --provider="Daisanmu\HttpLogger\HttpLoggerServiceProvider" --tag="config" 
 ```
 
 This is the contents of the published config file:
@@ -35,13 +35,13 @@ return [
      * The log profile which determines whether a request should be logged.
      * It should implement `LogProfile`.
      */
-    'log_profile' => \Spatie\HttpLogger\LogNonGetRequests::class,
+    'log_profile' => \Daisanmu\HttpLogger\LogNonGetRequests::class,
 
     /*
      * The log writer used to write the request to a log.
      * It should implement `LogWriter`.
      */
-    'log_writer' => \Spatie\HttpLogger\DefaultLogWriter::class,
+    'log_writer' => \Daisanmu\HttpLogger\DefaultLogWriter::class,
 
     /*
      * Filter out body fields which will never be logged.

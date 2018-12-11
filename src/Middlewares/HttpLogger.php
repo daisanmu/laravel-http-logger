@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\HttpLogger\Middlewares;
+namespace Daisanmu\HttpLogger\Middlewares;
 
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Spatie\HttpLogger\LogWriter;
+use Daisanmu\HttpLogger\LogWriter;
 use Illuminate\Support\Facades\Log;
-use Spatie\HttpLogger\LogProfile;
-use Spatie\HttpLogger\LogRequests;
+use Daisanmu\HttpLogger\LogProfile;
+use Daisanmu\HttpLogger\LogRequests;
 
 class HttpLogger
 {

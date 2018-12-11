@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\HttpLogger;
+namespace Daisanmu\HttpLogger;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Spatie\HttpLogger\LogRequests;
+use Daisanmu\HttpLogger\LogRequests;
 
 class DefaultLogWriter implements LogWriter
 {
