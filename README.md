@@ -5,10 +5,10 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-http-logger.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-http-logger)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-http-logger.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-http-logger)
 
-This package adds a middleware which can log incoming requests to the default log. 
-If anything goes wrong during a user's request, you'll still be able to access the original request data sent by that user.
+功能描述：
+  日志中间件，可通过route指定中间件来记录http请求的 header ,body,ip,response信息。并且当response错误时可发生邮件到指定邮箱（这需要配置好laravel自带的Mail）。
+  这些参数都是可配置的。配置文件如下。
 
-This log acts as an extra safety net for critical user submissions, such as forms that generate leads.
 
 ## Installation
 
