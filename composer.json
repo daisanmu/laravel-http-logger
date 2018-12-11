@@ -1,17 +1,17 @@
 {
-    "name": "spatie/laravel-http-logger",
+    "name": "daisanmu/laravel-http-logger",
     "description": "A Laravel 5 package to log HTTP requests",
     "keywords": [
-        "spatie",
+        "daisanmu",
         "laravel-http-logger"
     ],
-    "homepage": "https://github.com/spatie/laravel-http-logger",
+    "homepage": "https://github.com/daisanmu/laravel-http-logger",
     "license": "MIT",
     "authors": [
         {
             "name": "Brent Roose",
-            "email": "brent@spatie.be",
-            "homepage": "https://spatie.be",
+            "email": "royeedai@gmail.com",
+            "homepage": "https://github.com/daisanmu",
             "role": "Developer"
         }
     ],
