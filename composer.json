@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\HttpLogger\\": "src"
+            "Daisanmu\\HttpLogger\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\HttpLogger\\Test\\": "tests"
+            
         }
     },
     "scripts": {
@@ -42,7 +42,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\HttpLogger\\HttpLoggerServiceProvider"
+                "Daisanmu\\HttpLogger\\HttpLoggerServiceProvider"
             ]
         }
     }
