@@ -34,5 +34,11 @@ return [
         'user-agent',
         'origin'
     ],
+    'send_mail_status' => [
+        '500'
+    ],
+    'send_to' => [
+
+    ]
     
 ];
